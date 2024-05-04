@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent } from "react";
 
 import styles from "./Signup.module.css";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import { emailRegex, passwordRegex } from "../../Utils/RegEx";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -18,6 +18,9 @@ function Signup() {
   const [isloading, setisloading] = useState(false);
 
   const [show, setshow] = useState(false);
+
+
+    const navigate = useNavigate();
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>): void {
     const { name, value } = event.target;
@@ -55,6 +58,8 @@ function Signup() {
       toast.success(response.data.message);
       console.log(response);
       setisloading(false);
+navigate("/home");
+
     } catch (error: any) {
       toast.error(error.response.data.message);
 
