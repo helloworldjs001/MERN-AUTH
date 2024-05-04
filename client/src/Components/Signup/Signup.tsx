@@ -49,7 +49,7 @@ function Signup() {
     try {
       setisloading(true);
       const response = await axios.post(
-        `${import.meta.env.VITE_BASE_SERVER_URL}/user/register)`,
+        `${import.meta.env.VITE_BASE_SERVER_URL}/user/register`,
         userDetails
       );
       toast.success(response.data.message);
