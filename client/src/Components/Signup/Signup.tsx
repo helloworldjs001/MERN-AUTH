@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useEffect } from "react";
 
 import styles from "./Signup.module.css";
 import { Link ,useNavigate} from "react-router-dom";
@@ -8,6 +8,7 @@ import axios from "axios";
 import Loader from "../Loader/Loader";
 
 import { motion } from "framer-motion";
+import { IsloggedIn } from "../../Utils/Auth";
 function Signup() {
   const [userDetails, setuserDetails] = useState({
     username: "",
@@ -21,6 +22,12 @@ function Signup() {
 
 
     const navigate = useNavigate();
+
+
+      useEffect(()=>{
+    IsloggedIn() ? navigate("/home") : ""
+  },[]) 
+
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>): void {
     const { name, value } = event.target;

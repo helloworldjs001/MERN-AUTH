@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "./ForgotPassword.module.css";
 import { emailRegex, passwordRegex } from "../../Utils/RegEx";
@@ -8,9 +8,17 @@ import { Link, useNavigate } from "react-router-dom";
 import Loader from "../Loader/Loader";
 
 import { motion } from "framer-motion";
+import { IsloggedIn } from "../../Utils/Auth";
 
 function ForgotPassword() {
   const [step, setstep] = useState(0);
+
+  const navigate = useNavigate()
+
+    useEffect(()=>{
+    IsloggedIn() ? navigate("/home") : ""
+  },[]) 
+
 
   return (
     <motion.div

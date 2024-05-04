@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useEffect } from "react";
 
 import styles from "./Login.module.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,6 +16,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 import Loader from "../Loader/Loader";
 
 import { motion } from "framer-motion";
+import { IsloggedIn } from "../../Utils/Auth";
 
 function Login() {
   const [userDetails, setuserDetails] = useState({
@@ -39,6 +40,11 @@ function Login() {
     }));
   }
 
+
+  useEffect(()=>{
+    IsloggedIn() ? navigate("/home") : ""
+  },[]) 
+
   const handleLogin = async () => {
     if (!emailRegex.test(userDetails.email)) {
       toast.error("Please enter a valid email address");
@@ -51,6 +57,8 @@ function Login() {
       );
       return;
     }
+
+    
 
     try {
       setisloading(true);

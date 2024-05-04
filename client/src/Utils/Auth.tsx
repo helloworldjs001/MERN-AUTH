@@ -7,7 +7,7 @@ const Auth = () => {
 
 export default Auth;
 
-const IsloggedIn = () => {
+export const IsloggedIn = () => {
   const token = localStorage.getItem("token");
 
   if (!token) {
