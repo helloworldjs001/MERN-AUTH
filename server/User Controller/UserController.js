@@ -45,7 +45,7 @@ const register = async (req, res) => {
         await newUser.save()
 
 
-        const emailBody = `<p>Please click on the link to verify your account. <b>http://localhost:3000/user/verify/${verficationToken}</b></p>`
+        const emailBody = `<p>Please click on the link to verify your account. <b>https://mern-auth-v4lx.onrender.com/user/verify/${verficationToken}</b></p>`
 
         const subject = `Verification Email`
 
