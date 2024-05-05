@@ -178,7 +178,7 @@ const verifyUser = async (req, res) => {
 
 
         if (!isTokenValid) {
-            return res.send(`<p>Token Invalid or Expired.</p> <a href="http://localhost:3000/user/resendVerification/${token}">Resend Verification Mail</a>`)
+            return res.send(`<p>Token Invalid or Expired.</p> <a href="https://mern-auth-v4lx.onrender.com/user/resendVerification/${token}">Resend Verification Mail</a>`)
 
         }
 
